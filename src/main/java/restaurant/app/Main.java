@@ -3,6 +3,7 @@ package restaurant.app;
 import restaurant.facade.RestaurantAdminFacade;
 import restaurant.facade.RestaurantFacade;
 import restaurant.facade.RestaurantOperationException;
+import restaurant.strategy.Demo;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -44,6 +45,8 @@ public class Main {
                     facade = app.restaurantFacade();
                     admin = app.adminFacade();
                     System.out.println("Store reset.");
+                } else if (choice.equals("9")) {
+                    Demo.main(new String[0]);
                 } else if (choice.equals("0")) {
                     return;
                 } else {
@@ -66,6 +69,7 @@ public class Main {
         System.out.println("6. Inspect saved state");
         System.out.println("7. Manual compensation");
         System.out.println("8. Reset persisted store");
+        System.out.println("9. Strategy demo (queue and courier selection)");
         System.out.println("0. Exit");
         System.out.print("Choose: ");
     }
