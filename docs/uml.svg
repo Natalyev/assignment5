@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820">
+<style>
+text { font-family: Arial, sans-serif; font-size: 16px; }
+.title { font-size: 24px; font-weight: bold; }
+.box { fill: white; stroke: black; stroke-width: 2; }
+.head { font-weight: bold; }
+.line { stroke: black; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+.dash { stroke: black; stroke-width: 2; stroke-dasharray: 8 6; fill: none; marker-end: url(#arrow); }
+</style>
+<defs>
+<marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+<path d="M0,0 L0,6 L9,3 z" fill="black"/>
+</marker>
+</defs>
+
+<text x="30" y="35" class="title">Restaurant Kitchen - Assignment 4 UML</text>
+
+<!-- Client -->
+<rect x="40" y="80" width="180" height="80" class="box"/>
+<text x="90" y="110" class="head">Client / Main</text>
+<text x="60" y="140">CLI live demo</text>
+
+<!-- Facades -->
+<rect x="330" y="60" width="250" height="120" class="box"/>
+<text x="380" y="90" class="head">RestaurantFacade</text>
+<text x="350" y="120">+ placeOrder()</text>
+<text x="350" y="145">+ beginOrder()</text>
+<text x="350" y="170">+ continueOrder()</text>
+
+<rect x="330" y="220" width="250" height="95" class="box"/>
+<text x="365" y="250" class="head">RestaurantAdminFacade</text>
+<text x="350" y="278">+ inspect()</text>
+<text x="350" y="302">+ manualCompensate()</text>
+
+<!-- Progress -->
+<rect x="670" y="80" width="220" height="110" class="box"/>
+<text x="710" y="110" class="head">ChainProgress</text>
+<text x="690" y="138">PENDING_B / PENDING_C</text>
+<text x="690" y="164">COMPLETED / COMPENSATED</text>
+
+<rect x="940" y="80" width="220" height="90" class="box"/>
+<text x="965" y="110" class="head">ChainProgressRepository</text>
+<text x="970" y="140">progress.csv</text>
+
+<!-- Subsystem A -->
+<rect x="40" y="400" width="320" height="300" class="box"/>
+<text x="120" y="430" class="title">Subsystem A</text>
+<text x="110" y="458" class="head">Order intake</text>
+
+<rect x="65" y="480" width="125" height="70" class="box"/>
+<text x="100" y="510" class="head">Order</text>
+<text x="75" y="535">NEW/CONFIRMED/CANCELLED</text>
+
+<rect x="210" y="480" width="125" height="70" class="box"/>
+<text x="220" y="510" class="head">InventoryChecker</text>
+
+<rect x="65" y="580" width="125" height="70" class="box"/>
+<text x="75" y="610" class="head">OrderQueueService</text>
+
+<rect x="210" y="580" width="125" height="70" class="box"/>
+<text x="220" y="610" class="head">OrderRepository</text>
+<text x="235" y="635">orders.csv</text>
+
+<!-- Subsystem B -->
+<rect x="440" y="400" width="320" height="300" class="box"/>
+<text x="520" y="430" class="title">Subsystem B</text>
+<text x="505" y="458" class="head">Kitchen processing</text>
+
+<rect x="465" y="480" width="125" height="70" class="box"/>
+<text x="485" y="510" class="head">KitchenTask</text>
+<text x="475" y="535">NEW/RESERVED/RELEASED</text>
+
+<rect x="610" y="480" width="125" height="70" class="box"/>
+<text x="620" y="505" class="head">CookingStation</text>
+<text x="635" y="530" class="head">Allocator</text>
+
+<rect x="465" y="580" width="125" height="70" class="box"/>
+<text x="490" y="610" class="head">KitchenService</text>
+
+<rect x="610" y="580" width="125" height="70" class="box"/>
+<text x="620" y="610" class="head">KitchenRepository</text>
+<text x="640" y="635">kitchen.csv</text>
+
+<text x="590" y="680">QualityChecker is used by KitchenService</text>
+
+<!-- Subsystem C -->
+<rect x="840" y="400" width="320" height="300" class="box"/>
+<text x="920" y="430" class="title">Subsystem C</text>
+<text x="930" y="458" class="head">Finalization</text>
+
+<rect x="865" y="480" width="125" height="70" class="box"/>
+<text x="875" y="505" class="head">FinalizationRecord</text>
+<text x="875" y="535">NEW/COMPLETED/CANCELLED</text>
+
+<rect x="1010" y="480" width="125" height="70" class="box"/>
+<text x="1030" y="510" class="head">BillingModule</text>
+
+<rect x="865" y="580" width="125" height="70" class="box"/>
+<text x="875" y="610" class="head">FinalizationService</text>
+
+<rect x="1010" y="580" width="125" height="70" class="box"/>
+<text x="1018" y="610" class="head">FinalizationRepository</text>
+<text x="1035" y="635">finalization.csv</text>
+
+<text x="930" y="680">DeliveryDispatcher is used by FinalizationService</text>
+
+<!-- arrows -->
+<path d="M220,115 L330,115" class="line"/>
+<path d="M220,135 L330,260" class="line"/>
+<path d="M580,115 L670,125" class="line"/>
+<path d="M890,125 L940,125" class="line"/>
+
+<path d="M430,180 L180,400" class="line"/>
+<path d="M455,180 L600,400" class="line"/>
+<path d="M500,180 L1000,400" class="line"/>
+
+<path d="M455,315 L210,400" class="dash"/>
+<path d="M500,315 L600,400" class="dash"/>
+<path d="M545,315 L1000,400" class="dash"/>
+</svg>
